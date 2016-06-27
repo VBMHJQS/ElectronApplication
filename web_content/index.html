@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script>
+// 重命名 Electron 提供的 require
+window.nodeRequire = require;
+delete window.require;
+delete window.exports;
+delete window.module;
+</script>
+  <script type="text/javascript" src="app/js/jquery.js"></script>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+    <input type='button' name="test" onclick="alertTxt()" value="这是一个按钮"/>
+    <script>
+      function alertTxt(){
+        alert($('h1').text());
+      }
+    </script>
+
+  </body>
+
+</html>

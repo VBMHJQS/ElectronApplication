@@ -2,5 +2,9 @@
   "name": "ElectronApplication",
   "version": "1.0.0",
   "description": "A minimal Electron application",
+<<<<<<< HEAD
   "main": "main.js"
+=======
+  "main": "web_content/main.js"
+>>>>>>> 9780fe922987eec80e4ad879772d4b008fedfe29
 }
