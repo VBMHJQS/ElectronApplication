@@ -1,0 +1,72 @@
+
+<div class="col-sm-12">
+  <div class="panel panel-default">
+      <div class="panel-heading">
+               TB日志
+      </div>
+      <div class="panel-body">
+          <div id = 'toolBar'>
+            <button class="btn m-b-xs w-xs btn-primary">编辑</button>
+          </div>
+          <table ui-jq="bootstrapTable" id="table"
+                   data-url="vendor/jquery/bootstraptable/data1.json"
+                   data-search=true
+                   data-height="400"
+                   data-classes="table table-no-bordered"
+                   data-toolbar='#toolBar'
+                   >
+                <thead>
+                    <tr>
+                          <th data-field="id">Item ID</th>
+                          <th data-field="name">Item Name</th>
+                          <th data-field="price">Item
+                    </tr>
+                </thead>
+
+          </table>
+      </div>
+  </div>
+
+</div>
+<div class="col-sm-4">
+  <div class="panel panel-success">
+      <div class="panel-heading">
+          <i class='icon-pencil'></i>&nbsp;&nbsp;新建关系
+      </div>
+      <div class="panel-body">
+         <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="col-lg-2 control-label">策略ID</label>
+              <div class="col-lg-10">
+                <input type="email" class="form-control" id="exampleInputEmail2">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">公式</label>
+              <div class="col-lg-10">
+                <input type="password" class="form-control" id="exampleInputPassword2" >
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">商品</label>
+              <div class="col-lg-10">
+                <input type="password" class="form-control" id="exampleInputPassword2" >
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">交易手数</label>
+              <div class="col-lg-10">
+                 <input type="password" class="form-control" id="exampleInputPassword2" >
+              </div>
+            </div>
+
+            <span ng-controller="ModalDemoCtrl">
+              <script type="text/ng-template" id="myModalContent.html">
+                <div ng-include="'tpl/modal.form.html'"></div>
+              </script>
+              <button class="btn btn-success" ng-click="open('lg')">保存</button>
+            </span>
+          </form>
+      </div>
+  </div>
+</div>

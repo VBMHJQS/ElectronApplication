@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('app')
-  .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window', 
+  .controller('AppCtrl', ['$scope', '$translate', '$localStorage', '$window',
     function(              $scope,   $translate,   $localStorage,   $window ) {
       // add 'ie' classes to html
       var isIE = !!navigator.userAgent.match(/MSIE/i);
@@ -30,7 +30,7 @@ angular.module('app')
           navbarHeaderColor: 'bg-black',
           navbarCollapseColor: 'bg-white-only',
           asideColor: 'bg-black',
-          headerFixed: true,
+          headerFixed: false,
           asideFixed: false,
           asideFolded: false,
           asideDock: false,

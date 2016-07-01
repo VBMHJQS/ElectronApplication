@@ -25,7 +25,8 @@
 
 </head>
 <body ng-controller="AppCtrl">
-  <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+
+
 
 
   <!-- jQuery -->
@@ -45,6 +46,8 @@
 
   <!-- bootstrap -->
   <script src="vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+
   <!-- lazyload -->
   <script src="vendor/angular/oclazyload/ocLazyLoad.js"></script>
   <!-- translate -->
@@ -74,5 +77,14 @@
   <script src="js/directives/ui-validate.js"></script>
   <script src="js/controllers/bootstrap.js"></script>
   <!-- Lazy loading -->
+  <div class="app" id="app"
+  ng-class="{
+      'app-header-fixed':app.settings.headerFixed,
+      'app-aside-fixed':app.settings.asideFixed,
+      'app-aside-folded':app.settings.asideFolded,
+      'app-aside-dock':app.settings.asideDock,
+      'container':app.settings.container
+    }" ui-view></div>
 </body>
+
 </html>

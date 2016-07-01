@@ -10,12 +10,12 @@
       "USER" : "User",
       "EMAIL" : "Email"
     },
-    "NOTIFICATIONS" : "Notifications"
+    "NOTIFICATIONS" : "菜单"
   }
 },
 "aside" : {
   "nav" : {
-    "HEADER" : "Navigation",
+    "HEADER" : "菜单",
     "DASHBOARD" : "Dashboard",
     "CALENDAR" : "Calendar",
     "EMAIL" : "Email",
@@ -63,14 +63,13 @@
       "YOUR_STUFF": "Your Stuff",
       "PROFILE" : "Profile",
       "DOCUMENTS" : "Documents"
-    },
-    "trade":{
-      "MENU":"Menu",
-      "FIRST_NAME":"Trade Info"
     }
   },
   "MILESTONE" : "Milestone",
-  "RELEASE" : "Release"
+  "RELEASE" : "Release"，
+  "trade":{
+    "FIRST_NAME":"相关策略"
+  }
 }
 
 }

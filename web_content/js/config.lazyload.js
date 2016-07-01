@@ -9,7 +9,7 @@ angular.module('app')
   .constant('JQ_CONFIG', {
       easyPieChart:   ['vendor/jquery/charts/easypiechart/jquery.easy-pie-chart.js'],
       sparkline:      ['vendor/jquery/charts/sparkline/jquery.sparkline.min.js'],
-      plot:           ['vendor/jquery/charts/flot/jquery.flot.min.js', 
+      plot:           ['vendor/jquery/charts/flot/jquery.flot.min.js',
                           'vendor/jquery/charts/flot/jquery.flot.resize.js',
                           'vendor/jquery/charts/flot/jquery.flot.tooltip.min.js',
                           'vendor/jquery/charts/flot/jquery.flot.spline.js',
@@ -31,7 +31,11 @@ angular.module('app')
       dataTable:      ['vendor/jquery/datatables/jquery.dataTables.min.js',
                           'vendor/jquery/datatables/dataTables.bootstrap.js',
                           'vendor/jquery/datatables/dataTables.bootstrap.css'],
-      vectorMap:      ['vendor/jquery/jvectormap/jquery-jvectormap.min.js', 
+      bootstrapTable: [
+                          'vendor/jquery/bootstraptable/bootstrap-table.min.css',
+                          'vendor/jquery/bootstraptable/bootstrap-table.min.js',
+                          'vendor/jquery/bootstraptable/bootstrap-table-zh-CN.min.js'],
+      vectorMap:      ['vendor/jquery/jvectormap/jquery-jvectormap.min.js',
                           'vendor/jquery/jvectormap/jquery-jvectormap-world-mill-en.js',
                           'vendor/jquery/jvectormap/jquery-jvectormap-us-aea-en.js',
                           'vendor/jquery/jvectormap/jquery-jvectormap.css'],
