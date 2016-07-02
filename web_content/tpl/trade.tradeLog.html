@@ -2,7 +2,7 @@
 <div class="col-sm-12">
   <div class="panel panel-default">
       <div class="panel-heading">
-               TB日志
+               策略关系
       </div>
       <div class="panel-body">
           <div id = 'toolBar'>
@@ -17,9 +17,10 @@
                    >
                 <thead>
                     <tr>
-                          <th data-field="id">Item ID</th>
-                          <th data-field="name">Item Name</th>
-                          <th data-field="price">Item
+                          <th data-field="id">策略ID</th>
+                          <th data-field="name">公式</th>
+                          <th data-field="price">商品</th>
+                          <th data-field="price">交易手数</th>
                     </tr>
                 </thead>
 
@@ -28,7 +29,7 @@
   </div>
 
 </div>
-<div class="col-sm-4">
+<div class="col-sm-4" ng-controller='TradeFormCtrl'>
   <div class="panel panel-success">
       <div class="panel-heading">
           <i class='icon-pencil'></i>&nbsp;&nbsp;新建关系
@@ -38,35 +39,30 @@
             <div class="form-group">
               <label class="col-lg-2 control-label">策略ID</label>
               <div class="col-lg-10">
-                <input type="email" class="form-control" id="exampleInputEmail2">
+                <input type="text" ng-model='tradeFormula.strategySystemId' name='strategySystemId' class="form-control" >
               </div>
             </div>
             <div class="form-group">
               <label class="col-lg-2 control-label">公式</label>
               <div class="col-lg-10">
-                <input type="password" class="form-control" id="exampleInputPassword2" >
+                <input type="text" ng-model='tradeFormula.formula' name='formula' class="form-control"  >
               </div>
             </div>
-            
+
             <div class="form-group">
               <label class="col-lg-2 control-label">商品</label>
               <div class="col-lg-10">
-                <input type="password" class="form-control" id="exampleInputPassword2" >
+                <input type="text" ng-model='tradeFormula.tradeSymbol' name='tradeSymbol' class="form-control"  >
               </div>
             </div>
             <div class="form-group">
               <label class="col-lg-2 control-label">交易手数</label>
               <div class="col-lg-10">
-                 <input type="password" class="form-control" id="exampleInputPassword2" >
+                 <input type="number" ng-model='tradeFormula.quant' name='quant' class="form-control"  >
               </div>
             </div>
 
-            <span ng-controller="ModalDemoCtrl">
-              <script type="text/ng-template" id="myModalContent.html">
-                <div ng-include="'tpl/modal.form.html'"></div>
-              </script>
-              <button class="btn btn-success" ng-click="open('lg')">保存</button>
-            </span>
+            <button class="btn btn-success" ng-click="saveFormula()">保存</button>
           </form>
       </div>
   </div>

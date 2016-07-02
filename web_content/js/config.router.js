@@ -310,7 +310,12 @@ angular.module('app')
               })
               .state('app.trade.tblog',{
                 url:'/tradelog',
-                templateUrl:'tpl/trade.tradeLog.html'
+                templateUrl:'tpl/trade.tradeLog.html',
+                resolve:{
+                  deps:['$ocLazyLoad',function($ocLazyLoad){
+                    return $ocLazyLoad.load('js/controllers/tradeFormula.js');
+                  }]
+                }
               })
 
 
