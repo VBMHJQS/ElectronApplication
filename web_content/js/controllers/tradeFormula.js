@@ -9,21 +9,22 @@ app.controller('TradeFormCtrl',['$scope','$http',function($scope, $http){
 
 
   $scope.saveFormula = function(){
-    var para = parseParam($scope.tradeFormula);
-
-    $http(
-      {
-      url:'http://localhost:8080/sim/client/mapper/insert',
-      method:'POST',
-      headers:{
-        'Content-Type':'application/x-www-form-urlencoded'
-      },
-      data:para
-    }).success(function(){
-            console.log("success!");
-        }).error(function(){
-            console.log("error");
-        })
+    // var para = parseParam($scope.tradeFormula);
+    //
+    // $http(
+    //   {
+    //   url:'http://localhost:8080/sim/client/mapper/insert',
+    //   method:'POST',
+    //   headers:{
+    //     'Content-Type':'application/x-www-form-urlencoded'
+    //   },
+    //   data:para
+    // }).success(function(){
+    //         console.log("success!");
+    //     }).error(function(){
+    //         console.log("error");
+    //     })
+testfs();
   }
 
   var parseParam = function(obj) {
@@ -58,3 +59,13 @@ app.controller('TradeFormCtrl',['$scope','$http',function($scope, $http){
   };
 
 }])
+
+function testfs(){
+  fs.readFile('input.txt',function(err,data){
+    if(err){
+      return console.error(err);
+    }else {
+      console.log(data.toString());
+    }
+  });
+}
