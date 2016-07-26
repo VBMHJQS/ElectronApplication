@@ -1,90 +1,103 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="app">
-<head>
+<html lang="utf-8">
 
-  <script>
-  // 重命名 Electron 提供的 require
-  window.nodeRequire = require;
-  delete window.require;
-  delete window.exports;
-  delete window.module;
-  </script>
+    <head>
+        <script>
+            // 重命名 Electron 提供的 require
+            window.nodeRequire = require;
+            delete window.require;
+            delete window.exports;
+            delete window.module;
+        </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" href="static/css/bootstrap.css" type="text/css"/>
+        <link rel="stylesheet" href="static/css/bootstrap-table.min.css" type="text/css"/>
+        <link rel="stylesheet" href="static/css/ng-grid.min.css" type="text/css"/>
+        <link rel="stylesheet" href="static/css/theme.css" type="text/css"/>
+        <link rel="stylesheet" href="static/css/ngDialog.css">
+        <link rel="stylesheet" href="static/css/ngDialog-theme-default.css">
 
-  <meta charset="utf-8" />
-  <title>Be Angular | Bootstrap Admin Web App with AngularJS</title>
-  <meta name="description" content="app, web app, responsive, responsive layout, admin, admin panel, admin dashboard, flat, flat ui, ui kit, AngularJS, ui route, charts, widgets, components" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="css/animate.css" type="text/css" />
-  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
-  <link rel="stylesheet" href="css/font.css" type="text/css" />
-  <link rel="stylesheet" href="css/app.css" type="text/css" />
+        <link rel="stylesheet" href="static/css/font-awesome.min.css" type="text/css"/>
+        <link rel="stylesheet" href="static/css/simple-line-icons.css" type="text/css"/>
+        <link rel="stylesheet" href="static/css/font.css" type="text/css"/>
+        <link rel="stylesheet" href="static/css/app.css" type="text/css"/>
+        <!-- <link rel="stylesheet" href="static/css/ngDialog-theme-plain.css"> -->
+        <!-- <link rel="stylesheet" href="static/css/ngDialog-custom-width.css"> -->
 
+        <!-- <link rel="stylesheet" href="static/css/main.css" type="text/css"/> -->
 
+    </head>
 
-</head>
-<body ng-controller="AppCtrl">
+    <body ng-app="iquant" ng-controller='TradeFormulaCtrl'>
 
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    策略关系
+                </div>
+                <div class="panel-body">
 
+                    <button class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="openFormulaDialog()">
+                        <i class="fa fa-plus"></i>新建关系</button>
+                    <button class="btn m-b-xs btn-sm btn-info btn-addon disabled" ng-click="editFormulaDialog()">
+                        <i class="fa fa-edit"></i>编辑关系</button>
+                    <button class="btn m-b-xs btn-sm btn-danger btn-addon" ng-click="delFormulaDialog()">
+                        <i class="fa fa-trash-o"></i>删除关系</button>
+                    <button class="btn m-b-xs btn-sm btn-success btn-addon {{isDisable}} pull-right" ng-click="sendHistoryLogs()">
+                        <i class="fa fa-refresh"></i>同步日志</button>
 
+                    <div class="gridStyle" ng-grid="gridOptions" style="min-height:450px"></div>
+                </div>
+            </div>
 
-  <!-- jQuery -->
-  <script src="vendor/jquery/jquery.min.js"></script>
+        </div>
 
-  <!-- Angular -->
-  <script src="vendor/angular/angular.js"></script>
+        <script type='text/ng-template' id='addFormulaDialogId'>
+            <div class="ngdialog-message">
 
-  <script src="vendor/angular/angular-animate/angular-animate.js"></script>
-  <script src="vendor/angular/angular-cookies/angular-cookies.js"></script>
-  <script src="vendor/angular/angular-resource/angular-resource.js"></script>
-  <script src="vendor/angular/angular-sanitize/angular-sanitize.js"></script>
-  <script src="vendor/angular/angular-touch/angular-touch.js"></script>
-<!-- Vendor -->
-  <script src="vendor/angular/angular-ui-router/angular-ui-router.js"></script>
-  <script src="vendor/angular/ngstorage/ngStorage.js"></script>
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <i class='icon-pencil'></i>&nbsp;&nbsp;新建关系
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">ID</label>
+                                <div class="col-lg-10">
+                                    <input type="text" ng-model='tradeFormula.id' name='stradegyId' class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">名称</label>
+                                <div class="col-lg-10">
+                                    <input type="text" ng-model='tradeFormula.name' name='formula' class="form-control">
+                                </div>
+                            </div>
 
-  <!-- bootstrap -->
-  <script src="vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">价格</label>
+                                <div class="col-lg-10">
+                                    <input type="text" ng-model='tradeFormula.price' name='symbolId' class="form-control">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="ngdialog-buttons">
+                    <button class="btn btn-success" ng-click="saveFormula()">保存</button>
+                </div>
+            </div>
+        </script>
 
+        <script type="text/javascript" src="static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="static/js/bootstrap.js"></script>
+        <script type="text/javascript" src="static/js/bootstrap-table.min.js"></script>
+        <script type="text/javascript" src="static/js/bootstrap-table-zh-CN.min.js"></script>
+        <script type="text/javascript" src="static/js/angular.js"></script>
+        <script type="text/javascript" src="static/js/ng-grid.min.js"></script>
+        <script type="text/javascript" src="static/js/ngDialog.js"></script>
 
-  <!-- lazyload -->
-  <script src="vendor/angular/oclazyload/ocLazyLoad.js"></script>
-  <!-- translate -->
-  <script src="vendor/angular/angular-translate/angular-translate.js"></script>
-  <script src="vendor/angular/angular-translate/loader-static-files.js"></script>
-  <script src="vendor/angular/angular-translate/storage-cookie.js"></script>
-  <script src="vendor/angular/angular-translate/storage-local.js"></script>
+        <script type="text/javascript" src="src/app.js"></script>
 
-  <!-- App -->
-  <script src="js/app.js"></script>
-  <script src="js/config.js"></script>
-  <script src="js/config.lazyload.js"></script>
-  <script src="js/config.router.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/services/ui-load.js"></script>
-  <script src="js/filters/fromNow.js"></script>
-  <script src="js/directives/setnganimate.js"></script>
-  <script src="js/directives/ui-butterbar.js"></script>
-  <script src="js/directives/ui-focus.js"></script>
-  <script src="js/directives/ui-fullscreen.js"></script>
-  <script src="js/directives/ui-jq.js"></script>
-  <script src="js/directives/ui-module.js"></script>
-  <script src="js/directives/ui-nav.js"></script>
-  <script src="js/directives/ui-scroll.js"></script>
-  <script src="js/directives/ui-shift.js"></script>
-  <script src="js/directives/ui-toggleclass.js"></script>
-  <script src="js/directives/ui-validate.js"></script>
-  <script src="js/controllers/bootstrap.js"></script>
-  <!-- Lazy loading -->
-  <div class="app" id="app"
-  ng-class="{
-      'app-header-fixed':app.settings.headerFixed,
-      'app-aside-fixed':app.settings.asideFixed,
-      'app-aside-folded':app.settings.asideFolded,
-      'app-aside-dock':app.settings.asideDock,
-      'container':app.settings.container
-    }" ui-view></div>
-</body>
-
+    </body>
 </html>
