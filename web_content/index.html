@@ -37,15 +37,12 @@
                 </div>
                 <div class="panel-body">
 
-                    <button class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="openFormulaDialog()">
-                        <i class="fa fa-plus"></i>新建关系</button>
-                    <button class="btn m-b-xs btn-sm btn-info btn-addon disabled" ng-click="editFormulaDialog()">
-                        <i class="fa fa-edit"></i>编辑关系</button>
-                    <button class="btn m-b-xs btn-sm btn-danger btn-addon" ng-click="delFormulaDialog()">
-                        <i class="fa fa-trash-o"></i>删除关系</button>
-                    <button class="btn m-b-xs btn-sm btn-success btn-addon {{isDisable}} pull-right" ng-click="sendHistoryLogs()">
-                        <i class="fa fa-refresh"></i>同步日志</button>
-
+                    <button class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="add()">
+                        <i class="fa fa-plus"></i>新建</button>
+                    <button class="btn m-b-xs btn-sm btn-info btn-addon" ng-click="edit()">
+                        <i class="fa fa-edit"></i>编辑</button>
+                    <button class="btn m-b-xs btn-sm btn-danger btn-addon" ng-click="del()">
+                        <i class="fa fa-trash-o"></i>删除</button>
                     <div class="gridStyle" ng-grid="gridOptions" style="min-height:450px"></div>
                 </div>
             </div>

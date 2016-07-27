@@ -2,6 +2,9 @@ var app = angular.module('iquant', ['ngGrid', 'ngDialog']);
 var dataUrl = __dirname + '/data/data.json';
 
 app.controller('TradeFormulaCtrl', ['$scope', '$rootScope', '$http', 'ngDialog', function($scope, $rootScope, $http, ngDialog) {
+    // ng-grid 选中事件即选中后返回的数组
+    $scope.mySelections = [];
+
     $scope.filterOptions = {
         filterText: "",
         useExternalFilter: true
@@ -13,7 +16,6 @@ app.controller('TradeFormulaCtrl', ['$scope', '$rootScope', '$http', 'ngDialog',
         currentPage: 1
     };
     $scope.setPagingData = function(data, page, pageSize) {
-        console.log(data);
         var pagedData = data.slice((page - 1) * pageSize, page * pageSize);
         $scope.myData = pagedData;
         $scope.totalServerItems = data.length;
@@ -59,6 +61,28 @@ app.controller('TradeFormulaCtrl', ['$scope', '$rootScope', '$http', 'ngDialog',
         showFooter: true,
         totalServerItems: 'totalServerItems',
         pagingOptions: $scope.pagingOptions,
-        filterOptions: $scope.filterOptions
+        filterOptions: $scope.filterOptions,
+        selectedItems: $scope.mySelections
     };
+
+    // 删除
+    $scope.del = function() {
+            console.log('del');
+            console.log($scope.mySelections);
+            if ($scope.mySelections.length <= 0) {
+                alert('请选择目标行');
+                return;
+            }
+        }
+        // 编辑
+    $scope.edit = function() {
+        console.log('edit');
+        var array = $scope.mySelections;
+        console.log(array.length);
+        if ( array <= 0) {
+            alert('请选择目标行');
+            return;
+        }
+        console.log(array[array.length-1]);//默认最后一行为要编辑的行
+    }
 }]);
